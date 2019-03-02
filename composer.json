@@ -1,0 +1,13 @@
+{
+    "name": "homepc/sqstorage",
+    "authors": [
+        {
+            "name": "schnoog",
+            "email": "schnoog@schnoog.eu"
+        }
+    ],
+    "require": {
+    "smarty/smarty": "~3.1",
+        "smarty-gettext/smarty-gettext": "^1.6"
+	}
+}
