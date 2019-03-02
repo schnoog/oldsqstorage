@@ -19,7 +19,7 @@
             <i class="fas fa-times-circle"></i>
             </button>
             <h4 class="text-dark">
-            <a href="{$target}?storageid={$item.storageid}">{$storagearray[{$item.storageid}]['label']}</a>&nbsp;<span class="small">TODO({$positionen} {t count=$positionen plural="Positionen"}Position{/t} , {$artikel} {t count=$artikel 1=$artikel plural="Gegenstände"}Gegenstand{/t})</span></h4>
+            <a href="{$target}?storageid={$item.storageid}">{$storagearray[{$item.storageid}]['label']}</a>&nbsp;<span class="small">({$positionen} {t count=$positionen plural="Positionen"}Position{/t} , {$artikel} {t count=$artikel 1=$artikel plural="Gegenstände"}Gegenstand{/t})</span></h4>
             <ul class="list-group">
             <li class="alert alert-info"><span class="list-span">{'Gruppe'|gettext}</span><span class="list-span">{'Bezeichnung'|gettext}</span><span class="list-span">{'Anzahl'|gettext}</span><span class="list-span">{'Bemerkung'|gettext}</span><span class="list-span">{'Unterkategorien'|gettext}</span><span class="list-span">{'Hinzugefügt'|gettext}</span><span class="list-span">{'Aktionen'|gettext}</span></li>
         {/if}
