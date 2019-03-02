@@ -4,7 +4,7 @@
         <div class="content">
             {if $success}
             <div class="alert alert-info" role="alert">
-                <p>{ $post.label } {'zur Datenbank hinzugefügt.'|gettext}</p>
+                <p>{$post.label} {'zur Datenbank hinzugefügt.'|gettext}</p>
             </div>
             {/if}
 

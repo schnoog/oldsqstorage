@@ -73,18 +73,17 @@
 
             $storages = DB::query('SELECT id, label FROM storages');
             $currentStorage = NULL;
+            $smarty->assign("storages",$storages);
+            $smarty->assign("currentStorage",$currentStorage);            
             $categories = DB::query('SELECT id, name FROM headCategories');
             $currentCategory = NULL;
-
+            $smarty->assign("categories",$categories);
+            $smarty->assign("currentCategory",$currentCategory);
 
             $smarty->assign("success",$success);
             $smarty->assign("isEdit",$isEdit);
             if(isset($item))$smarty->assign("item",$item);
             if(isset($_POST))$smarty->assign("post",$_POST);
-            $smarty->assign("storages",$storages);
-            $smarty->assign("currentStorage",$currentStorage);
-            $smarty->assign("categories",$categories);
-            $smarty->assign("currentCategory",$currentCategory);
 
             $smarty->display('indexpage.tpl');
 
