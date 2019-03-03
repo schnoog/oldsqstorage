@@ -7,6 +7,8 @@ At the moment sqStorage is only available in German, a translation to English is
 
 ### Installation
 In order for sqStorage to work, the database structure (file) **tlv_empty.sql** has to be imported, for example using *phpmyadmin*.
+The directories **smartyfiles/** and **languages/locale/** need to be writeable for the webserver.
+**chown -R www-data smartyfiles/** and **chown -R www-data languages/locale/** should do it in most cases.
 
 ### Configuration
 By default, the database name used is *tlv* and the main user *tlvUser* with the password *tlvUser* - this can be configured in **support/dba.php** changing the ***DB::dbName***,  ***DB::$user*** and ***DB::$password*** variables.
