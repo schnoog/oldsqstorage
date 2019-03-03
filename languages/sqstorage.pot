@@ -157,6 +157,10 @@ msgstr ""
 msgid "Suchen"
 msgstr ""
 
+#: templates//nav.tpl:21
+msgid "Sprache wählen"
+msgstr ""
+
 #: templates//test.tpl:9 templates//test.tpl:26 templates//transfer.tpl:9
 #: templates//transfer.tpl:26
 msgid "Quelle"
