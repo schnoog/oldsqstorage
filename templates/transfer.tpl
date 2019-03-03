@@ -6,7 +6,7 @@
 
         <div class="dropdown float-left">
         <select value="-1" autocomplete="off" class="btn btn-primary dropdown-toggle switchStorage" type="button" tabindex="-1" data-type="storeSrc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <option selected="selected" value="-1">{'Quelle'|gettext}</option>
+        <option selected="selected" value="-1">{t}Quelle{/t}</option>
 
         {foreach $storages as $storage}
             <option value="{$storage.id}">{$storage.label}</option>', $storage['id'], $storage['label']);
@@ -16,15 +16,15 @@
 
         <div class="dropdown float-left">
             <select value="-1" autocomplete="off" class="btn btn-primary dropdown-toggle switchStorage" type="button" tabindex="-1" data-type="storeDest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <option selected="selected" value="-1">{'Ziel'|gettext}</option>
+                <option selected="selected" value="-1">{t}Ziel{/t}</option>
 
         {foreach $storages as $storage}
          <option value="{$storage.id}">{$storage.label}</option>
         {/foreach}
         </select>
         </div>
-        <div class="clearfix storageListing storeSrc"><h2>{'Quelle'|gettext}</h2><div class="data" data-type="src">{'Quelle wählen.'|gettext}</div></div>
-        <div class="float-left storageListing storeDest"><h2>{'Ziel'|gettext}</h2><div class="data" data-type="dest">{'Ziel wählen.'|gettext}</div><button id="transferButton" class="btn btn-primary float-right">{'Transferieren'|gettext}</button></div>
+        <div class="clearfix storageListing storeSrc"><h2>{t}Quelle{/t}</h2><div class="data" data-type="src">{t}Quelle wählen.{/t}</div></div>
+        <div class="float-left storageListing storeDest"><h2>{t}Ziel{/t}</h2><div class="data" data-type="dest">{t}Ziel wählen.{/t}</div><button id="transferButton" class="btn btn-primary float-right">{t}Transferieren{/t}</button></div>
 
 
 
@@ -104,8 +104,8 @@
 
                 if (parseInt(evt.target.value) === -1) {
                     let noItems = document.createElement('p');
-                    if (evt.target.dataset['type'] === 'storeSrc') noItems.appendChild(document.createTextNode('{/literal}{'Quelle wählen'|gettext}{literal}'))
-                    else if (evt.target.dataset['type'] === 'storeDest') noItems.appendChild(document.createTextNode('{/literal}{'Ziel wählen'|gettext}{literal}'))
+                    if (evt.target.dataset['type'] === 'storeSrc') noItems.appendChild(document.createTextNode('{/literal}{t}Quelle wählen{/t}{literal}'))
+                    else if (evt.target.dataset['type'] === 'storeDest') noItems.appendChild(document.createTextNode('{/literal}{t}Ziel wählen{/t}{literal}'))
                     root.appendChild(noItems)
                     return
                 }
@@ -124,7 +124,7 @@
 
                         if (items.length === 0) {
                             let noItems = document.createElement('p');
-                            noItems.appendChild(document.createTextNode('{/literal}{'Keine Gegenstände gefunden'|gettext}{literal}'))
+                            noItems.appendChild(document.createTextNode('{/literal}{t}Keine Gegenstände gefunden{/t}{literal}'))
                             root.appendChild(noItems)
                             return
                         }

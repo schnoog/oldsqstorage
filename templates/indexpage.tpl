@@ -4,13 +4,13 @@
         <div class="content">
             {if $success}
             <div class="alert alert-info" role="alert">
-                <p>{$post.label} {'zur Datenbank hinzugefügt.'|gettext}</p>
+                <p>{$post.label} {t}zur Datenbank hinzugefügt.{/t}</p>
             </div>
             {/if}
 
             {if $isEdit }
             <div class="alert alert-danger" role="alert">
-                <h6>{'Eintrag zur Bearbeitung:'|gettext}&quot;{$item.label}&quot;</h6>
+                <h6>{t}Eintrag zur Bearbeitung:{/t}&quot;{$item.label}&quot;</h6>
             </div>
             {/if}
 
@@ -18,9 +18,9 @@
                 {if $isEdit}<input type="hidden" value="{$item.id}" name="itemUpdateId" />{/if}
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">{'Bezeichnung'|gettext}</span>
+                        <span class="input-group-text" id="basic-addon1">{t}Bezeichnung{/t}</span>
                     </div>
-                    <input type="text" name="label" maxlength="64" class="form-control" required="required" placeholder="{'Bezeichnung oder Name'|gettext}")aria-label="{'Bezeichnung'|gettext}" aria-describedby="basic-addon1" {if $isEdit}value="{$item.label}"{/if}>                    
+                    <input type="text" name="label" maxlength="64" class="form-control" required="required" placeholder="{t}Bezeichnung oder Name{/t}")aria-label="{t}Bezeichnung{/t}" aria-describedby="basic-addon1" {if $isEdit}value="{$item.label}"{/if}>                    
                 </div>
 
                 <div class="input-group mb-3">
@@ -28,9 +28,9 @@
                         <div class="dropdown">
                             <select class="btn btn-secondary dropdown-toggle" type="button" tabindex="-1" id="storageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="off">
                                 {if  $isEdit and $item.storageid != 0}
-                                    <option value="-1">{'Lagerplatz'|gettext}</option>
+                                    <option value="-1">{t}Lagerplatz{/t}</option>
                                 {else}
-                                    <option value="-1" selected="selected">{'Lagerplatz'|gettext}</option>
+                                    <option value="-1" selected="selected">{t}Lagerplatz{/t}</option>
                                 {/if}
 
                                 {foreach $storages as $storage}
@@ -46,17 +46,17 @@
                         </div>
                     </div>
 
-                <input type="text" name="storage" id="storage" maxlength="32" class="form-control" placeholder="{'Lagerplatz'|gettext}" required="required" autocomplete="off" {if  $isEdit and $item.storageid != 0}value="{$currentStorage.label}"{/if}>
+                <input type="text" name="storage" id="storage" maxlength="32" class="form-control" placeholder="{t}Lagerplatz{/t}" required="required" autocomplete="off" {if  $isEdit and $item.storageid != 0}value="{$currentStorage.label}"{/if}>
 
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon7">{'Bemerkung'|gettext}</span>
+                        <span class="input-group-text" id="basic-addon7">{t}Bemerkung{/t}</span>
                     </div>
 
 
-                    <input type="text" name="comment" maxlength="255" class="form-control" autocomplete="off" placeholder="{'Bemerkung'|gettext}" aria-label="Bemerkung" aria-describedby="basic-addon7" {if isset($item.comment)}value="{$item.comment}"{/if}>
+                    <input type="text" name="comment" maxlength="255" class="form-control" autocomplete="off" placeholder="{t}Bemerkung{/t}" aria-label="Bemerkung" aria-describedby="basic-addon7" {if isset($item.comment)}value="{$item.comment}"{/if}>
 
                 </div>
 
@@ -65,9 +65,9 @@
                         <div class="dropdown">
                             <select class="btn btn-secondary dropdown-toggle" tabindex="-1" autocomplete="off" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {if $isEdit}
-                                        <option value="-1">{'Kategorie'|gettext}</option>
+                                        <option value="-1">{t}Kategorie{/t}</option>
                                     {else}
-                                        <option value="-1" selected="selected">{'Kategorie'|gettext}</option>
+                                        <option value="-1" selected="selected">{t}Kategorie{/t}</option>
 
                                     {/if}
                                     {foreach $categories as $category}
@@ -85,9 +85,9 @@
                         </div>
                     </div>
                         {if !$isEdit or $currentCategory == NULL}
-                            <input type="text" class="form-control" id="category" name="category" required="required" autocomplete="off" placeholder="{'Netzwerk/Hardware'|gettext}">
+                            <input type="text" class="form-control" id="category" name="category" required="required" autocomplete="off" placeholder="{t}Netzwerk/Hardware{/t}">
                         {else}
-                            <input type="text" class="form-control" id="category" name="category" required="required" autocomplete="off" placeholder="{'Netzwerk/Hardware'|gettext}" value="{$currentCategory.name}">
+                            <input type="text" class="form-control" id="category" name="category" required="required" autocomplete="off" placeholder="{t}Netzwerk/Hardware{/t}" value="{$currentCategory.name}">
 
                         {/if}
                 </div>
@@ -98,9 +98,9 @@
                             <select class="btn btn-secondary dropdown-toggle" tabindex="-1" autocomplete="off" type="button" id="subcategoryDropdown" multiple="multiple" size="3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {if $isEdit and !empty($item.subcategories)}
                                         {$subCat = explode(',',$item.subcategories)}
-                                        <option value="-1">{'Unterkategorie'|gettext}</option>
+                                        <option value="-1">{t}Unterkategorie{/t}</option>
                                     {else}
-                                        <option value="-1" selected="selected">{'Unterkategorie'|gettext}</option>
+                                        <option value="-1" selected="selected">{t}Unterkategorie{/t}</option>
                                     {/if}
                                     {$subCategories = array()}
                                     {foreach $categories as $category}
@@ -116,28 +116,28 @@
                     </div>
                     {$subCategories_imploded = implode($subCategories,',')}
                     {if !$isEdit or empty($subCategories_imploded)}
-                        <input type="text" class="form-control" id="subcategory" name="subcategories" placeholder="{'Router,wlan,fritzBox'|gettext}" aria-label="{'Unterkategorie'|gettext}" autocomplete="off">
+                        <input type="text" class="form-control" id="subcategory" name="subcategories" placeholder="{t}Router,wlan,fritzBox{/t}" aria-label="{t}Unterkategorie{/t}" autocomplete="off">
                     {else}
-                        <input type="text" class="form-control" id="subcategory" name="subcategories" placeholder="{'Router,wlan,fritzBox'|gettext}" aria-label="{'Unterkategorie'|gettext}" autocomplete="off" value="{$subCategories_imploded}">
+                        <input type="text" class="form-control" id="subcategory" name="subcategories" placeholder="{t}Router,wlan,fritzBox{/t}" aria-label="{t}Unterkategorie{/t}" autocomplete="off" value="{$subCategories_imploded}">
                     {/if}
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon4">{'Anzahl'|gettext}</span>
+                        <span class="input-group-text" id="basic-addon4">{t}Anzahl{/t}</span>
                     </div>
-                        <input type="text" autocomplete="off" name="amount" class="form-control" placeholder="1" aria-label="{'Anzahl'|gettext}" aria-describedby="basic-addon4" {if $isEdit}value="{$item.amount}"{/if}>
+                        <input type="text" autocomplete="off" name="amount" class="form-control" placeholder="1" aria-label="{t}Anzahl{/t}" aria-describedby="basic-addon4" {if $isEdit}value="{$item.amount}"{/if}>
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon6">{'Seriennummer'|gettext}</span>
+                        <span class="input-group-text" id="basic-addon6">{t}Seriennummer{/t}</span>
                     </div>
-                        <input type="text" name="serialnumber" class="form-control" placeholder="{'Seriennummer/Artikelnummer'|gettext}" aria-label="{'Seriennummer'|gettext}" aria-describedby="basic-addon6" {if $isEdit}value="{$item.serialnumber}"{/if}>
+                        <input type="text" name="serialnumber" class="form-control" placeholder="{t}Seriennummer/Artikelnummer{/t}" aria-label="{t}Seriennummer{/t}" aria-describedby="basic-addon6" {if $isEdit}value="{$item.serialnumber}"{/if}>
                 </div>
 
                 <div style="float: right;">
-                    <button type="submit" class="btn btn-danger">{if $isEdit}{'Überschreiben'|gettext}{else}{'Eintragen'|gettext}{/if}</button>
+                    <button type="submit" class="btn btn-danger">{if $isEdit}{t}Überschreiben{/t}{else}{t}Eintragen{/t}{/if}</button>
                 </div>
             </form>
         </div>

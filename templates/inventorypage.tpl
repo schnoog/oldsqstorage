@@ -21,7 +21,7 @@
             <h4 class="text-dark">
             <a href="{$target}?storageid={$item.storageid}">{$storagearray[{$item.storageid}]['label']}</a>&nbsp;<span class="small">({$positionen} {t count=$positionen plural="Positionen"}Position{/t} , {$artikel} {t count=$artikel 1=$artikel plural="Gegenstände"}Gegenstand{/t})</span></h4>
             <ul class="list-group">
-            <li class="alert alert-info"><span class="list-span">{'Gruppe'|gettext}</span><span class="list-span">{'Bezeichnung'|gettext}</span><span class="list-span">{'Anzahl'|gettext}</span><span class="list-span">{'Bemerkung'|gettext}</span><span class="list-span">{'Unterkategorien'|gettext}</span><span class="list-span">{'Hinzugefügt'|gettext}</span><span class="list-span">{'Aktionen'|gettext}</span></li>
+            <li class="alert alert-info"><span class="list-span">{t}Gruppe{/t}</span><span class="list-span">{t}Bezeichnung{/t}</span><span class="list-span">{t}Anzahl{/t}</span><span class="list-span">{t}Bemerkung{/t}</span><span class="list-span">{t}Unterkategorien{/t}</span><span class="list-span">{t}Hinzugefügt{/t}</span><span class="list-span">{t}Aktionen{/t}</span></li>
         {/if}
         <li class="list-group-item">
             <button class="btn smallButton" name="remove" data-name="{$item.label}" value="1" type="submit"><i class="fas fa-times-circle"></i></button>
@@ -50,7 +50,7 @@
             <div class="dropdown float-right">
 
                 <select autocomplete="off" class="btn btn-primary dropdown-toggle switchStorage" value="0" type="button" tabindex="-1" data-id="{$item.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <option selected="selected" value="-1">{'Zuweisen'|gettext}</option>
+                    <option selected="selected" value="-1">{t}Zuweisen{/t}</option>
                     {foreach $storages as $storage}
                         <option value="{$storage.id}">{$storage.label}</option>
                     {/foreach}
@@ -84,7 +84,7 @@
             let removalButtons = document.querySelectorAll('.smallButton')
             for (let button of removalButtons) {
                 button.addEventListener('click', function (evt) {
-                    let targetType = evt.target.name === 'removeStorage' ? '{/literal}{'Lagerplatz wirklich entfernen?'|gettext}{literal}' : '{/literal}{'Position wirklich entfernen?'|gettext}{literal}'
+                    let targetType = evt.target.name === 'removeStorage' ? '{/literal}{t}Lagerplatz wirklich entfernen?{/t}{literal}' : '{/literal}{t}Position wirklich entfernen?{/t}{literal}'
                     if (!window.confirm(targetType + ' "' + evt.target.dataset['name'] + '"')) {
                         evt.preventDefault()
                     }
