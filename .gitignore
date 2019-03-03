@@ -1,2 +1,3 @@
 support/dba.php
 smartyfolders/templates_c/*.php
+fastadd.sh*

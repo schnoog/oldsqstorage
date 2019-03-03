@@ -25,17 +25,9 @@
                         <a class="list-span" data-name="{$category.name}" href="inventory.php?subcategory={$category.id}">{$category.name}</a><span class="list-span">{$category.amount}  {t count=$category.amount plural="Gegenstände"}Gegenstand{/t}</span><a class="fas fa-edit editCategory" href="#" name="editSubcategory" data-name="{$category.name}" data-id="{$category.id}"></a>
                         <div class="dropdown list-span">
                             <select class="btn btn-secondary dropdown-toggle categoryDropdowns" type="button" data-originid="{$category.id}" tabindex="-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="off">
-                                    {if $category.headcategory != 0}
-                                        <option value="-1">{'Keine'|gettext}</option>
-                                    {else}
-                                        <option value="-1" selected="selected">{'Keine'|gettext}</option>
-                                    {/if}
+                                    <option value="-1" {if $category.headcategory == 0}selected="selected"{/if}>{'Keine'|gettext}</option>
                                     {foreach $headCategories as $headCategory}
-                                        {if $headCategory.id == $category.headcategory}
-                                            <option value="{$headCategory.id}" selected="selected">{$headCategory.name}</option>
-                                        {else}
-                                            <option value="{$headCategory.id}" >{$headCategory.name}</option>
-                                        {/if}
+                                            <option value="{$headCategory.id}" {if $headCategory.id == $category.headcategory}selected="selected"{/if}>{$headCategory.name}</option>
                                     {/foreach}
                             </select>
                         </div>
