@@ -7,9 +7,6 @@ $smarty->setCompileDir($basedir .'/smartyfolders/templates_c/');
 $smarty->setConfigDir($basedir .'/smartyfolders/configs/');
 $smarty->setCacheDir($basedir .'/smartyfolders/cache/');
 
-if(!isset($langCurrent)){
-    SetLanguage();
-}
 if(isset($langsAvailable)){
     $smarty->assign('langsAvailable',$langsAvailable,true);
     $smarty->assign('langsLabels',$langsLabels);
