@@ -12,4 +12,12 @@
         <input class="form-control mr-sm-2" name="searchValue" type="search" placeholder="{t}Suche{/t}" aria-label="{t}Suche{/t}">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{t}Suchen{/t}</button>
     </form>
+    <form class="form-inline my-2 " method="GET">
+    <select class="form-control mr-sm-2" name="lang">
+        {foreach $langsAvailable as $lang}
+        <option class="nav-item" value="{$lang}">{$langsLabels[{$lang}]}</option>
+        {/foreach}
+    </select>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{t}Sprache wählen{/t}</button>
+    </form>
 </nav>
