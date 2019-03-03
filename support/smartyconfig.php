@@ -7,14 +7,14 @@ $smarty->setCompileDir($basedir .'/smartyfolders/templates_c/');
 $smarty->setConfigDir($basedir .'/smartyfolders/configs/');
 $smarty->setCacheDir($basedir .'/smartyfolders/cache/');
 
+if(!isset($langCurrent)){
+    SetLanguage();
+}
 if(isset($langsAvailable)){
     $smarty->assign('langsAvailable',$langsAvailable,true);
     $smarty->assign('langsLabels',$langsLabels);
     $smarty->assign('langCurrent',$langCurrent);
 }
-
-
-//$smarty->assign('name','Ned');
 
 //** un-comment the following line to show the debug console
 $smarty->debugging = true;

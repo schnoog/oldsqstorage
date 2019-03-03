@@ -2,24 +2,32 @@
 
 define('LANGUAGEDIR', $basedir.'/languages/locale/');
 
-$langsAvailable = array('en_GB','de_DE');
-$langsLabels = array(
-    'en_GB' => 'English',
-    'de_DE' => 'Deutsch'
-);
-$defaultLanguage = $langsAvailable[count($langsAvailable)-1];
-session_start();
-if(isset($_REQUEST['lang'])){
-    if(in_array($_REQUEST['lang'],$langsAvailable)){
-        $newlang = $_REQUEST['lang'];
-        $_SESSION['lang'] = $newlang;
+    $langsAvailable = array('en_GB','de_DE');
+    $langsLabels = array(
+                        'en_GB' => 'English',
+                        'de_DE' => 'Deutsch'
+                        );
+    $defaultLanguage = $langsAvailable[count($langsAvailable)-1];
+    $langCurrent = $defaultLanguage;
+
+
+
+function SetLanguage(){
+    global $langsAvailable, $langCurrent, $defaultLanguage;
+    session_start();
+
+    if(isset($_REQUEST['lang'])){
+        if(in_array($_REQUEST['lang'],$langsAvailable)){
+            $newlang = $_REQUEST['lang'];
+            $_SESSION['lang'] = $newlang;
+        }
     }
+
+    if(!isset($_SESSION['lang'])) $_SESSION['lang'] = $defaultLanguage;
+    $langCurrent= $_SESSION['lang'];
+
+    initLang($_SESSION['lang']);
 }
-
-if(!isset($_SESSION['lang'])) $_SESSION['lang'] = $defaultLanguage;
-$langCurrent= $_SESSION['lang'];
-initLang($_SESSION['lang']);
-
 
 function initLang($locale){
     $locales_root = LANGUAGEDIR; // locales directory
