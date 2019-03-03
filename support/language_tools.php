@@ -3,6 +3,7 @@
 define('LANGUAGEDIR', $basedir.'/languages/locale/');
 
 $langSet = "en_GB";
+//$langSet = "de_DE";
 
 initLang($langSet);
 
