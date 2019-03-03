@@ -10,6 +10,7 @@ $smarty->setCacheDir($basedir .'/smartyfolders/cache/');
 if(isset($langsAvailable)){
     $smarty->assign('langsAvailable',$langsAvailable,true);
     $smarty->assign('langsLabels',$langsLabels);
+    $smarty->assign('langCurrent',$langCurrent);
 }
 
 

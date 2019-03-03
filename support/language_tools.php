@@ -17,7 +17,7 @@ if(isset($_REQUEST['lang'])){
 }
 
 if(!isset($_SESSION['lang'])) $_SESSION['lang'] = $defaultLanguage;
-
+$langCurrent= $_SESSION['lang'];
 initLang($_SESSION['lang']);
 
 

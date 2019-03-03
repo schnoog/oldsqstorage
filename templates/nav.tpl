@@ -15,7 +15,7 @@
     <form class="form-inline my-2 " method="GET">
     <select class="form-control mr-sm-2" name="lang">
         {foreach $langsAvailable as $lang}
-        <option class="nav-item" value="{$lang}">{$langsLabels[{$lang}]}</option>
+        <option class="nav-item" value="{$lang}" {if $langCurrent == $lang} selected="selected"{/if}>{$langsLabels[{$lang}]}</option>
         {/foreach}
     </select>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{t}Sprache wählen{/t}</button>
